@@ -12,35 +12,23 @@ if (typeof Object.create !== 'function') {
     'use strict';
     var Expander = {
         init: function (options, el) {
-            var self = this;
-            self.el = el;
+            var self = this; // this = this instance of Expander
+            self.el = el; // el = container element
             self.$el = $(el);
-            console.log(el);
-            console.log(this);
-            /**
             if (typeof options === 'string') {
-                self.tocEl = options;
+                self.toggleEl = options;
             } else {
-                self.tocEl = options.tocEl;
-                self.options = $.extend({}, $.fn.makeTOC.options, options);
+                self.toggleEl = options.toggleElement;
+                self.options = $.extend({}, $.fn.makeExpander.options, options);
             }
-            self.makeHeadingList(self.$el, self.tocEl);
-            if (self.options.smoothScroll) {
-                self.makeSmoothScroll(self.$el, self.tocEl);
-            }
-            **/
-        }/**,
-        makeHeadingList: function ($el, tocEl) {
-            $("<ul/>").appendTo(tocEl);
-            $el.find(':header').each(function () {
-                var $this = $(this),
-                    htxt = $this.text(),
-                    hidtxt = htxt.replace(/\W/g, ''),
-                    hclass = 'toc-' + $this.prop('tagName').toLowerCase();
-                $this.attr('id', hidtxt);
-                $('<li/>', {addClass: hclass}).html('<a href="#' + hidtxt + '">' + htxt + '</a>').appendTo(tocEl + ' ul');
-            });
+            self.wrapHidden(self.$el, self.toggleEl);
+
         },
+        wrapHidden: function ($el, toggleEl) {
+            $el.find(toggleEl).each(function(){ 
+                $(this).nextUntil(toggleEl).andSelf().wrapAll('<div class="expandy-hide" />');
+            });
+        }/**,
         makeSmoothScroll: function($el, tocEl){
             $(tocEl).find('a').on('click', function(e) {
                 $el.find(':header').removeClass('targeted');   
