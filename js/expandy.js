@@ -16,6 +16,7 @@ if (typeof Object.create !== 'function') {
             self.el = el;
             self.$el = $(el);
             console.log(el);
+            console.log(this);
             /**
             if (typeof options === 'string') {
                 self.tocEl = options;
