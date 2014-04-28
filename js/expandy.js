@@ -26,7 +26,7 @@ if (typeof Object.create !== 'function') {
         },
         wrapHidden: function ($el, toggleEl) {
             $el.find(toggleEl).each(function(){ 
-                $(this).nextUntil(toggleEl).andSelf().wrapAll('<div class="expandy-hide" />');
+                $(this).nextUntil(toggleEl).wrapAll('<div class="expandy-hide" />');
             });
         }/**,
         makeSmoothScroll: function($el, tocEl){
