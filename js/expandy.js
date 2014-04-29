@@ -8,7 +8,7 @@ if (typeof Object.create !== 'function') {
     };
 }
 
-(function ($, window, document, undefined) {
+(function ($, undefined) {
     'use strict';
     var Expander = {
         init: function (options, el) {
@@ -68,25 +68,4 @@ if (typeof Object.create !== 'function') {
         indicator: 'plusminus'
     };
     
-})( jQuery, window, document );
-
-
-/**
-
-USAGE
-var options = {
-        toggleElement: 'h2',
-        jqAnim: false,
-        speed: 400,
-        indicator: 'plusminus'
-    }
-$(container).makeExpander(options);
-
-// container - element containing all the toggle/expanding content
-// toggleElement - heading for each piece of hidden/displayed content. Everything between each toggleElement will be hidden. default is <h2>
-// jqAnim - use jQuery slide animation instead of CSS to show/hide. default is false.
-// speed - speed of animation when using jQuery slide animation. accepts a # of milliseconds, or the keywords 'fast' (200ms) and 'slow' (600ms). default is 400.
-// indicator - what to add as an open-closed indicator. this option adds a class to the  
-toggleElement, the actual indicator is created/styled in the CSS. accepts 'plusminus', 'triangle', or 'arrow' (or anything else there's CSS for, if you want to roll your own). default is 'pluminus'. 
-
-**/
+})( jQuery );
