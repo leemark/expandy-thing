@@ -48,6 +48,7 @@ if (typeof Object.create !== 'function') {
     
     $.fn.makeExpander = function( options ){
         return this.each(function(){
+            console.log(this);
             var expander = Object.create( Expander );
             expander.init( options, this );
         });   
