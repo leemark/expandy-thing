@@ -13,6 +13,9 @@ h2{
     font-family: 'Raleway', 'sans-serif'; 
     font-weight: 600;
 }
+a{
+    color: #777;
+}
 .intro{
     font-size: 1.2em;
     padding-bottom: 1em;
