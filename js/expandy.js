@@ -18,8 +18,6 @@ if (typeof Object.create !== 'function') {
             if (typeof options === 'string') {
                 self.toggleEl = options;
             } else {
-                self.toggleEl = options.toggleElement;
-                self.jqAnim = options.jqAnim;
                 self.options = $.extend({}, $.fn.makeExpander.options, options);
             }
             self.wrapHidden(self.$el, self.options);
