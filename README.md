@@ -10,7 +10,8 @@ USAGE: include expandy.js and expandy.css
 var options = {
         toggleElement: 'h2',
         jqAnim: false,
-        
+        speed: 400,
+        indicator: 'plusminus'
     }
     
 $(container).makeExpander(options);
