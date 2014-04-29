@@ -1,3 +1,9 @@
+body{
+    font-family: 'Bitter', 'serif';
+}
+h1, h2{
+    font-family: 'Raleway', 'sans-serif';   
+}
 .expandy{
     display: block;
 }
@@ -7,9 +13,6 @@
 .expandy-toggle{
     cursor: pointer;   
 }
-.expandy-toggle:selection{ background-color: transparent;}
-.expandy-toggle:moz-selection{ background-color: transparent;}
-.expandy-toggle:webkit-selection{ background-color: transparent;}
 .expandy-toggle:after{
     content: ' [+]';
 }
