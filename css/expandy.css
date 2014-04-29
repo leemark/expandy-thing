@@ -1,8 +1,13 @@
 body{
     font-family: 'Bitter', 'serif';
 }
-h1, h2{
-    font-family: 'Raleway', 'sans-serif';   
+h1{
+    font-family: 'Raleway', 'sans-serif'; 
+    font-weight: 900;
+}
+h2{
+    font-family: 'Raleway', 'sans-serif'; 
+    font-weight: 600;
 }
 .expandy{
     display: block;
