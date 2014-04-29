@@ -22,10 +22,12 @@ if (typeof Object.create !== 'function') {
                 self.jqAnim = options.jqAnim;
                 self.options = $.extend({}, $.fn.makeExpander.options, options);
             }
-            self.wrapHidden(self.$el, self.toggleEl, self.jqAnim);
+            self.wrapHidden(self.$el, self.options);
             self.attachToggle(self.$el, self.toggleEl, self.jqAnim);
         },
-        wrapHidden: function ($el, toggleEl, jqAnim) {
+        wrapHidden: function ($el, options) {
+            var toggleEl = options.toggleElement;
+            var jqAnim = options.jqAnim;
             $el.find(toggleEl).each(function(){ 
                 if(jqAnim){
                     $(this).nextUntil(toggleEl).wrapAll('<div class="expandy" />');
@@ -55,7 +57,9 @@ if (typeof Object.create !== 'function') {
     
     $.fn.makeExpander.options = {
         toggleElement: 'h2',
-        jqAnim: false
+        jqAnim: false,
+        speed: 'medium',
+        indicator: 'plusMinus'
     };
     
 })( jQuery, window, document );
@@ -66,7 +70,9 @@ if (typeof Object.create !== 'function') {
 USAGE
 var options = {
         toggleElement: 'h2',
-        jqAnim: false
+        jqAnim: false,
+        speed: 'medium',
+        indicator: 'plusMinus'
     }
 $(container).makeExpander(options);
 

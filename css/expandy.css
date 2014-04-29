@@ -16,3 +16,9 @@
 .expandy-toggle.expandy-hidden:after{
     content: ' [-]';
 }
+.expandy-toggle.triangle:after{
+    content: ' [+]';
+}
+.expandy-toggle.expandy-hidden.triangle:after{
+    content: ' [-]';
+}
