@@ -29,6 +29,7 @@ if (typeof Object.create !== 'function') {
             $el.find(toggleEl).each(function(){ 
                 if(jqAnim){
                     $(this).nextUntil(toggleEl).wrapAll('<div class="expandy" />');
+                    $('.expandy').hide();
                 }else{
                     $(this).nextUntil(toggleEl).wrapAll('<div class="expandy expandy-hidden" />');   
                 }
