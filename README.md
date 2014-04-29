@@ -10,6 +10,7 @@ var options = {
         toggleElement: 'h2',
         jqAnim: false
     }
+    
 $(container).makeExpander(options);
 
 // container - element containing all the toggle/expanding content
