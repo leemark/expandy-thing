@@ -8,8 +8,8 @@
     cursor: pointer;   
 }
 .expandy-toggle:after{
-    content: ' [-]';
+    content: ' [+]';
 }
 .expandy-toggle.expandy-hidden:after{
-    content: ' [+]';
+    content: ' [-]';
 }
