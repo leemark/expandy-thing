@@ -10,15 +10,23 @@
 .expandy-toggle{
     cursor: pointer;   
 }
-.expandy-toggle:after{
-    content: ' [+]';
-}
-.expandy-toggle.expandy-hidden:after{
+
+/* show/hide indicators */
+.expandy-toggle.plusminus:after{
     content: ' [-]';
+}
+.expandy-toggle.expandy-hidden.plusminus:after{
+    content: ' [+]';
 }
 .expandy-toggle.triangle:after{
-    content: ' [+]';
+    content: ' \25BE';
 }
 .expandy-toggle.expandy-hidden.triangle:after{
-    content: ' [-]';
+    content: ' \25B8';
+}
+.expandy-toggle.arrow:after{
+    content: ' \2191';
+}
+.expandy-toggle.expandy-hidden.arrow:after{
+    content: ' \2193';
 }

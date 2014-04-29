@@ -25,7 +25,7 @@ if (typeof Object.create !== 'function') {
                 self.options = $.extend({}, $.fn.makeExpander.options, options);
             }
             self.wrapHidden(self.$el, self.options);
-            self.attachToggle(self.$el, self.toggleEl, self.jqAnim);
+            self.attachToggle(self.$el, self.options);
         },
         wrapHidden: function ($el, options) {
             var toggleEl = options.toggleElement;
@@ -39,10 +39,14 @@ if (typeof Object.create !== 'function') {
                 }
             });
         },
-        attachToggle: function ($el, toggleEl, jqAnim) {
-            $el.find(toggleEl).addClass('expandy-toggle').on('click', function(){ 
+        attachToggle: function ($el, options) {
+            var toggleEl = options.toggleElement;
+            var jqAnim = options.jqAnim;
+            var indicator = options.indicator;
+            var speed = options.speed;
+            $el.find(toggleEl).addClass('expandy-toggle expandy-hidden ' + indicator).on('click', function(){ 
                 if(jqAnim){
-                    $(this).toggleClass('expandy-hidden').next('.expandy').slideToggle();
+                    $(this).toggleClass('expandy-hidden').next('.expandy').slideToggle(speed);
                 }else{ 
                     $(this).toggleClass('expandy-hidden').next('.expandy').toggleClass('expandy-hidden');  
                 }
@@ -83,4 +87,6 @@ $(container).makeExpander(options);
 // jqAnim - use jQuery slide animation instead of CSS to show/hide. default is false.
 // speed - speed of animation when using jQuery slide animation. accepts a # of milliseconds, or the keywords 'fast' (200ms) and 'slow' (600ms). default is 400.
 // indicator - what to add as an open-closed indicator. this option adds a class to the  
+toggleElement, the actual indicator is created/styled in the CSS. accepts 'plusminus', 'triangle', or 'arrow' (or anything else there's CSS for, if you want to roll your own). default is 'pluminus'. 
+
 **/
