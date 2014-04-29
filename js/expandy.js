@@ -22,11 +22,16 @@ if (typeof Object.create !== 'function') {
                 self.options = $.extend({}, $.fn.makeExpander.options, options);
             }
             self.wrapHidden(self.$el, self.toggleEl);
-
+            self.attachToggle(self.$el, self.toggleEl);
         },
         wrapHidden: function ($el, toggleEl) {
             $el.find(toggleEl).each(function(){ 
-                $(this).nextUntil(toggleEl).wrapAll('<div class="expand-hide" />');
+                $(this).nextUntil(toggleEl).wrapAll('<div class="expandy expandy-hide" />');
+            });
+        },
+        attachToggle: function ($el, toggleEl) {
+            $el.find(toggleEl).on('click', function(){ 
+                $(this).next('.expandy').toggleClass('expandy-hide');
             });
         }
     };
