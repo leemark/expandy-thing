@@ -38,7 +38,7 @@ if (typeof Object.create !== 'function') {
         attachToggle: function ($el, toggleEl, jqAnim) {
             $el.find(toggleEl).addClass('expandy-toggle').on('click', function(){ 
                 if(jqAnim){
-                    $(this).toggleClass('expandy-hidden').next('.expandy').fadeToggle();
+                    $(this).toggleClass('expandy-hidden').next('.expandy').slideToggle();
                 }else{ 
                     $(this).toggleClass('expandy-hidden').next('.expandy').toggleClass('expandy-hidden');  
                 }
