@@ -2,6 +2,7 @@ body{
     width: 80%;
     margin: 0 auto;
     font-family: 'Bitter', 'serif';
+    background-color: #D1DBBD;
 }
 h1{
     font-family: 'Raleway', 'sans-serif'; 
@@ -15,7 +16,7 @@ h2{
 .intro{
     font-size: 1.2em;
     padding-bottom: 1em;
-    border-bottom: 1px dashed #ccc; 
+    border-bottom: 1px dashed #777; 
 }
 .expandy{
     display: block;
