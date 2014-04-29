@@ -16,31 +16,31 @@ if (typeof Object.create !== 'function') {
             self.el = el; // el = container element
             self.$el = $(el);
             if (typeof options === 'string') {
-                self.toggleTrig = options;
+                self.toggleEl = options;
             } else {
-                self.toggleTrig = options.toggleTrigger;
+                self.toggleEl = options.toggleElement;
                 self.jqAnim = options.jqAnim;
                 self.speed = options.speed;
                 self.indicator = options.indicator;
                 self.options = $.extend({}, $.fn.makeExpander.options, options);
             }
             self.wrapHidden(self.$el, self.options);
-            self.attachToggle(self.$el, self.toggleTrig, self.jqAnim);
+            self.attachToggle(self.$el, self.toggleEl, self.jqAnim);
         },
         wrapHidden: function ($el, options) {
-            var toggleTrig = options.toggleTrigger;
+            var toggleEl = options.toggleElement;
             var jqAnim = options.jqAnim;
-            $el.find(toggleTrig).each(function(){ 
+            $el.find(toggleEl).each(function(){ 
                 if(jqAnim){
-                    $(this).nextUntil(toggleTrig).wrapAll('<div class="expandy" />');
+                    $(this).nextUntil(toggleEl).wrapAll('<div class="expandy" />');
                     $('.expandy').hide();
                 }else{
-                    $(this).nextUntil(toggleTrig).wrapAll('<div class="expandy expandy-hidden" />');   
+                    $(this).nextUntil(toggleEl).wrapAll('<div class="expandy expandy-hidden" />');   
                 }
             });
         },
-        attachToggle: function ($el, toggleTrig, jqAnim) {
-            $el.find(toggleTrig).addClass('expandy-toggle').on('click', function(){ 
+        attachToggle: function ($el, toggleEl, jqAnim) {
+            $el.find(toggleEl).addClass('expandy-toggle').on('click', function(){ 
                 if(jqAnim){
                     $(this).toggleClass('expandy-hidden').next('.expandy').slideToggle();
                 }else{ 
@@ -58,7 +58,7 @@ if (typeof Object.create !== 'function') {
     };
     
     $.fn.makeExpander.options = {
-        toggleTrigger: 'h2',
+        toggleElement: 'h2',
         jqAnim: false,
         speed: 'medium',
         indicator: 'plusminus'
@@ -71,7 +71,7 @@ if (typeof Object.create !== 'function') {
 
 USAGE
 var options = {
-        toggleTrigger: 'h2',
+        toggleElement: 'h2',
         jqAnim: false,
         speed: 400,
         indicator: 'plusminus'
@@ -79,7 +79,7 @@ var options = {
 $(container).makeExpander(options);
 
 // container - element containing all the toggle/expanding content
-// toggleTrigger - heading for each piece of hidden/displayed content. Everything between each toggleTrigger will be hidden. default is <h2>
+// toggleElement - heading for each piece of hidden/displayed content. Everything between each toggleElement will be hidden. default is <h2>
 // jqAnim - use jQuery slide animation instead of CSS to show/hide. default is false.
 // speed - speed of animation when using jQuery slide animation. accepts a # of milliseconds, or the keywords 'fast' (200ms) and 'slow' (600ms). default is 400.
 // indicator - what to add as an open-closed indicator. this option adds a class to the  
