@@ -30,7 +30,7 @@ if (typeof Object.create !== 'function') {
             });
         },
         attachToggle: function ($el, toggleEl) {
-            $el.find(toggleEl).on('click', function(){ 
+            $el.find(toggleEl).addClass('expandy-toggle').on('click', function(){ 
                 $(this).next('.expandy').toggleClass('expandy-hide');
             });
         }
