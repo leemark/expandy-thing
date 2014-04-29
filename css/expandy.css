@@ -19,9 +19,13 @@ h2{
 }
 .expandy{
     display: block;
+    opacity: 1;
+    transition: opacity 1s;
 }
 .expandy.expandy-hidden{
     display: none;
+    opacity: 0;
+    transition: opacity 1s;
 }
 .expandy-toggle{
     cursor: pointer;   
