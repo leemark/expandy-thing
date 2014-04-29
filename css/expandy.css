@@ -1,6 +1,15 @@
 .expandy{
     display: block;
 }
-.expandy.expandy-hide{
+.expandy.expandy-hidden{
     display: none;
+}
+.expandy-toggle{
+    cursor: pointer;   
+}
+.expandy-toggle:after{
+    content: ' [-]';
+}
+.expandy-toggle.expandy-hidden:after{
+    content: ' [+]';
 }
