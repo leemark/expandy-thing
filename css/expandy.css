@@ -1,0 +1,6 @@
+.expandy{
+    display: block;
+}
+.expandy.expandy-hide{
+    display: none;
+}
