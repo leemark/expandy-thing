@@ -7,6 +7,9 @@
 .expandy-toggle{
     cursor: pointer;   
 }
+.expandy-toggle:selection{ background-color: transparent;}
+.expandy-toggle:moz-selection{ background-color: transparent;}
+.expandy-toggle:webkit-selection{ background-color: transparent;}
 .expandy-toggle:after{
     content: ' [+]';
 }
