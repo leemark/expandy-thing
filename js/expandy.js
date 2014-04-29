@@ -26,21 +26,9 @@ if (typeof Object.create !== 'function') {
         },
         wrapHidden: function ($el, toggleEl) {
             $el.find(toggleEl).each(function(){ 
-                $(this).nextUntil(toggleEl).wrapAll('<div class="expandy-hide" />');
+                $(this).nextUntil(toggleEl).wrapAll('<div class="expand-hide" />');
             });
-        }/**,
-        makeSmoothScroll: function($el, tocEl){
-            $(tocEl).find('a').on('click', function(e) {
-                $el.find(':header').removeClass('targeted');   
-                var target = $(this).attr('href'); 
-                $('html, body').animate({
-                    scrollTop: $(target).offset().top -20
-                }, 700);
-                $(target).addClass('targeted');
-                e.preventDefault();
-            });  
-        } 
-        **/
+        }
     };
     
     $.fn.makeExpander = function( options ){
