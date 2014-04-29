@@ -1,3 +1,4 @@
+/* styles for demo page only */
 body{
     width: 80%;
     margin: 0 auto;
@@ -21,6 +22,9 @@ a{
     padding-bottom: 1em;
     border-bottom: 1px dashed #777; 
 }
+
+/* plugin styles below */
+
 .expandy{
     display: block;
 }
