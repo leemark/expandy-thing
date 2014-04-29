@@ -27,6 +27,8 @@ a{
 
 .expandy{
     display: block;
+    position: relative;
+    overflow: hidden;
 }
 .expandy.expandy-hidden{
     display: none;
