@@ -33,28 +33,34 @@ if (typeof Object.create !== 'function') {
             self.allToggle(self.$el, self.options);
         },
         wrapHidden: function ($el, options) {
-            var toggleEl = options.toggleElement;
-            var jqAnim = options.jqAnim;
+            var toggleEl = options.toggleElement,
+                jqAnim = options.jqAnim;
             $el.find(toggleEl).each(function(){ 
                 if(jqAnim){
                     $(this).nextUntil(toggleEl).wrapAll('<div class="expandy" />');
-                    $('.expandy').hide();
+                    $el.find('.expandy').hide();
                 }else{
                     $(this).nextUntil(toggleEl).wrapAll('<div class="expandy expandy-hidden" />');   
                 }
             });
         },
         attachToggle: function ($el, options) {
-            var toggleEl = options.toggleElement;
-            var jqAnim = options.jqAnim;
-            var indicator = options.indicator;
-            var speed = options.speed;
+            var toggleEl = options.toggleElement,
+                jqAnim = options.jqAnim,
+                indicator = options.indicator,
+                accord = options.accordion,
+                speed = options.speed;
+            
             $el.find(toggleEl).addClass('expandy-toggle expandy-hidden ' + indicator).on('click', function(){ 
                 if(jqAnim){
-                    $('.expandy-toggle').not(this).addClass('expandy-hidden').next('.expandy').slideUp(speed); // hide others
-                    $(this).toggleClass('expandy-hidden').next('.expandy').slideToggle(speed); // show this one
+                    if(accord){
+                        $('.expandy-toggle').not(this).addClass('expandy-hidden').next('.expandy').slideUp(speed); // hide others
+                    }    
+                    $(this).toggleClass('expandy-hidden').next('.expandy').slideToggle(speed);// show this one
                 }else{ 
-                    $('.expandy-toggle').not(this).addClass('expandy-hidden').next('.expandy').addClass('expandy-hidden'); // hide others
+                    if(accord){
+                        $('.expandy-toggle').not(this).addClass('expandy-hidden').next('.expandy').addClass('expandy-hidden'); // hide others
+                    }
                     $(this).toggleClass('expandy-hidden').next('.expandy').toggleClass('expandy-hidden'); // show this one  
                 }
             });
@@ -62,7 +68,8 @@ if (typeof Object.create !== 'function') {
         showFirst: function($el, options){
             var first = $el.find('.expandy-toggle').first();
             if(options.jqAnim){
-                first.toggleClass('expandy-hidden').next('.expandy').slideToggle(options.speed);
+                first.toggleClass('expandy-hidden').next('.expandy').show(options.speed);
+                
             }else{ 
                 first.toggleClass('expandy-hidden').next('.expandy').toggleClass('expandy-hidden');  
             }         
@@ -75,21 +82,22 @@ if (typeof Object.create !== 'function') {
                 if($all.text()==='show all'){
                     txt = 'hide all';
                     if(options.jqAnim){
-                        $(toggleEl).toggleClass('expandy-hidden').next('.expandy').slideDown(options.speed);
+                        $el.find(toggleEl).removeClass('expandy-hidden').next('.expandy').slideDown(options.speed);
                     }else{ 
-                        $(toggleEl).toggleClass('expandy-hidden').next('.expandy').removeClass('expandy-hidden');  
+                        $el.find(toggleEl).addClass('expandy-hidden').next('.expandy').removeClass('expandy-hidden');  
                     }
                 }else{
                     txt = 'show all';
                     if(options.jqAnim){
-                        $(toggleEl).toggleClass('expandy-hidden').next('.expandy').slideUp(options.speed);
+                        $el.find(toggleEl).addClass('expandy-hidden').next('.expandy').slideUp(options.speed); 
                     }else{ 
-                        $(toggleEl).toggleClass('expandy-hidden').next('.expandy').addClass('expandy-hidden');  
+                        $el.find(toggleEl).addClass('expandy-hidden').next('.expandy').addClass('expandy-hidden');  
                     }
                 }
-                $('.toggle-all').text(txt);
+                $el.find('.toggle-all').text(txt);
             });
-            $all.prependTo($el).clone(true).appendTo($el);
+            // $all.prependTo($el).clone(true).appendTo($el); // show top + bottom
+            $all.prependTo($el); // show at top only
         }
     };
     
