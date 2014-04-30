@@ -10,6 +10,13 @@
 .expandy-toggle{
     cursor: pointer;   
 }
+.toggle-all{
+    float: right;
+    cursor: pointer;
+    font-size: .8em;
+    font-style: italic;
+    text-decoration: underline;
+}
 
 /* show/hide indicators */
 .expandy-toggle.plusminus:after{
