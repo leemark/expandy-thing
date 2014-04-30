@@ -1,7 +1,7 @@
 expandy-thing
 =============
 
-Just a fairly simple jQuery plugin to show+hide content on a web page. 
+Just a fairly simple jQuery plugin to show+hide content on a web page. Also will accommodate multiple instances per page: <http://leemark.github.io/expandy-thing/double.html> 
 
 USAGE: include expandy.js and expandy.css
 
